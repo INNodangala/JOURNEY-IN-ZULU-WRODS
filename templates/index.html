@@ -5,9 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uHambo lweZwi - Journey in Zulu Words</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .user-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .logout-btn {
+            background: none;
+            border: 2px solid #f44336;
+            color: #f44336;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #f44336;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
+        <!-- User Header -->
+        <div class="user-header">
+            <div class="user-info">
+                <div class="user-avatar">{{ session.username[0]|upper if session.username else 'U' }}</div>
+                <span class="user-name">{{ session.username if session.username else 'Guest' }}</span>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+
         <!-- Home Screen -->
         <section id="home-screen" class="screen active">
             <div class="home-container">

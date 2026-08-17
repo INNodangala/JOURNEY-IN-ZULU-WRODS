@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uHambo lweZwi - Journey in Zulu Words</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="app">
+        <!-- Home Screen -->
+        <section id="home-screen" class="screen active">
+            <div class="home-container">
+                <h1 class="game-title">uHambo lweZwi</h1>
+                <p class="game-subtitle">Journey in Zulu Words</p>
+                <div class="home-illustration">
+                    <div class="sun"></div>
+                    <div class="hill"></div>
+                    <div class="hill hill-2"></div>
+                </div>
+                <div class="level-buttons">
+                    <button class="level-btn" data-level="letters" data-unlock="1">
+                        <span class="level-icon">A</span>
+                        <span class="level-label">Izinhlaka</span>
+                        <span class="level-desc">Letters</span>
+                        <div class="level-progress-bar"><div class="level-progress-fill" data-progress="letters"></div></div>
+                    </button>
+                    <button class="level-btn" data-level="syllables" data-unlock="2">
+                        <span class="level-icon">Ba</span>
+                        <span class="level-label">Izingxenye</span>
+                        <span class="level-desc">Syllables</span>
+                        <div class="level-progress-bar"><div class="level-progress-fill" data-progress="syllables"></div></div>
+                    </button>
+                    <button class="level-btn" data-level="words" data-unlock="3">
+                        <span class="level-icon">📖</span>
+                        <span class="level-label">Amagama</span>
+                        <span class="level-desc">Words</span>
+                        <div class="level-progress-bar"><div class="level-progress-fill" data-progress="words"></div></div>
+                    </button>
+                    <button class="level-btn" data-level="sentences" data-unlock="4">
+                        <span class="level-icon">💬</span>
+                        <span class="level-label">Izivakalisi</span>
+                        <span class="level-desc">Sentences</span>
+                        <div class="level-progress-bar"><div class="level-progress-fill" data-progress="sentences"></div></div>
+                    </button>
+                    <button class="level-btn" data-level="stories" data-unlock="5">
+                        <span class="level-icon">📚</span>
+                        <span class="level-label">Indaba</span>
+                        <span class="level-desc">Stories</span>
+                        <div class="level-progress-bar"><div class="level-progress-fill" data-progress="stories"></div></div>
+                    </button>
+                </div>
+                <div class="stats-summary">
+                    <span class="stars-earned">⭐ <span id="total-stars">0</span></span>
+                    <span class="words-learned">📝 <span id="total-words">0</span> words learned</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level Screen -->
+        <section id="level-screen" class="screen">
+            <div class="level-header">
+                <button class="back-btn" id="back-btn">← Back</button>
+                <h2 id="level-title"></h2>
+                <div class="level-stars" id="level-stars"></div>
+            </div>
+            <div class="exercise-area" id="exercise-area">
+                <!-- Exercises dynamically rendered here -->
+            </div>
+            <div class="level-nav">
+                <button class="nav-btn" id="prev-exercise" disabled>← Previous</button>
+                <div class="exercise-dots" id="exercise-dots"></div>
+                <button class="nav-btn" id="next-exercise">Next →</button>
+            </div>
+        </section>
+
+        <!-- Sub-level Selection Screen -->
+        <section id="sublevel-screen" class="screen">
+            <div class="level-header">
+                <button class="back-btn" id="sublevel-back-btn">← Back</button>
+                <h2 id="sublevel-title"></h2>
+            </div>
+            <div class="sublevel-list" id="sublevel-list">
+                <!-- Sub-level buttons dynamically rendered here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/progress.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
